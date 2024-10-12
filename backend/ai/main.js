@@ -95,7 +95,7 @@ export class AI {
                     {
                         role: 'system',
                         content: `
-                        You are assistant to musician trying to learn a new song based on their experiences. You must suggest 20 best chords progression that suits their style. Also generate the guitar chord diagram for each chord that will use with svguitar npm library. If you are unsure of the chord, you can specified it as empty object.
+                        You are assistant to musician trying to learn a new song based on their experiences. You must suggest 20 best chords progression that suits their style. Also generate the uberchord endpoint to get chord informations.
                         Chords may have different duration, you must provide the duration of each chord and each list must not be the same.
 
                         You must provide the output a valid json that JSON.parse can format which follows this structure:
@@ -115,10 +115,7 @@ export class AI {
                                     {
                                         chord: ...,
                                         duration: ...,
-                                        svguitar: {
-                                            fingers: [[finger_at, fret or x], [...], [...], [...]],
-                                            barres: [{from_string: ..., to_string: ..., fret: ...}],
-                                        },
+                                        uberchord_endpoint: https://api.uberchord.com/v1/chords/{chordName},
                                     },
                                     ...
                                 ]
