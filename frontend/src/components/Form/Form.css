@@ -83,7 +83,7 @@
   background-color: #3c4c39;
 }
 
-.difficulty-medium {
+.difficulty-intermediate {
   background-color: #524937;
 }
 
@@ -95,7 +95,7 @@
   background-color: #587e52;
 }
 
-#medium:hover ~ .difficulty-medium {
+#intermediate:hover ~ .difficulty-intermediate {
   background-color: #7e673c;
 }
 
@@ -107,7 +107,7 @@
   background-color: #6cd55c;
 }
 
-#medium:checked ~ .difficulty-medium {
+#intermediate:checked ~ .difficulty-intermediate {
   background-color: #e2b053;
 }
 
