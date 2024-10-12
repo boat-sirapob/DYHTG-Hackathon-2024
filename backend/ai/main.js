@@ -60,6 +60,7 @@ export class AI {
                                 {
                                     title: ...,
                                     artist: ...,
+                                    analysed_difficulty: ...,
                                 },
                                 ...
                             ]

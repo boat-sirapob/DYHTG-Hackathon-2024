@@ -41,6 +41,19 @@
   border-radius: 12px;
   background: #6cd55c;
   height: fit-content;
+  text-transform: capitalize;
+}
+
+.song-item-difficulty.easy {
+  background: #6cd55c;
+}
+
+.song-item-difficulty.intermediate {
+  background: #f7d154;
+}
+
+.song-item-difficulty.hard {
+  background: #f76c6c;
 }
 
 .song-item-title {
