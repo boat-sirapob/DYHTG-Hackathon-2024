@@ -1,0 +1,16 @@
+.App {
+  min-height: 100vh;
+  background-color: #1c232a;
+}
+
+* {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  color: white;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 40px;
+}
