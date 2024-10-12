@@ -1,0 +1,62 @@
+.song-item {
+  border-radius: 18px;
+  background: #333c44;
+  /* width: 100%; */
+  height: 80px;
+  display: flex;
+  padding: 8px;
+  align-items: center;
+  gap: 25px;
+}
+
+.song-item-image {
+  border-radius: 12px;
+  aspect-ratio: 1 / 1;
+  height: 100%;
+  background-color: white;
+}
+
+.song-item-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.song-item-detail {
+  flex: 1;
+  display: flex;
+  gap: 25px;
+}
+
+.song-item-difficulty {
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 12px;
+  background: #6cd55c;
+  height: fit-content;
+}
+
+.song-item-title {
+  font-weight: 800;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.song-item-subtitle {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.song-item-play-button {
+  padding: 20px;
+}
+
+.song-item-duration {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.song-item-play-button button {
+  font-size: 18px;
+}

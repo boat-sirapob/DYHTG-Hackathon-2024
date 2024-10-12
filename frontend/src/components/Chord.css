@@ -1,0 +1,11 @@
+.chord-title {
+  display: flex;
+  color: #ec661a;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  align-items: center;
+  justify-content: left;
+  padding: 15px 0px 0px 30px;
+}

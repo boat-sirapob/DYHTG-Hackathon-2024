@@ -1,5 +1,9 @@
-export default function Button() {
-  return <div></div>;
-}
+export default function Button({ size, text, onClick }) {
+  const buttonClass = size === "large" ? "button" : "small-button";
 
-const ButtonStyle = {};
+  return (
+    <button onClick={onClick} className={buttonClass}>
+      {text}
+    </button>
+  );
+}
