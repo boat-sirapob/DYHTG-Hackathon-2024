@@ -1,0 +1,32 @@
+.chord-item {
+  border-radius: 18px;
+  background: #333c44;
+  /* width: 100%; */
+  height: 80px;
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  gap: 25px;
+}
+
+.chord-item-detail {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.chord-item-view-button {
+  padding: 20px;
+}
+
+.chord-item-view-button button {
+  font-size: 18px;
+}
+
+.chord-text {
+  color: #fff;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+}

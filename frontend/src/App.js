@@ -1,25 +1,33 @@
 import "./App.css";
 
-import Card from "./components/Card";
+import { Route, Routes } from "react-router-dom";
+
+import Chord from "./components/Chord";
 import Home from "./components/Home";
-import logo from "./logo.svg";
+import Song from "./components/Song";
+import logo from "./logo.png";
+import { useNavigate } from "react-router-dom";
 
 function App() {
+  const navigate = useNavigate();
+
   return (
     <div className="App">
-      <Home />
-      <Card colorTitle="AI" title="Song Finder">
-        <div>
-          Lorem ipsum dolor sit amet. Eos provident quidem ut velit cumque et
-          ullam soluta. Nam consequuntur voluptas aut aperiam{" "}
+      <div className="nav">
+        <div className="nav-content">
+          <img
+            src={logo}
+            onClick={() => navigate("/")}
+            className="logo"
+            alt=""
+          ></img>
         </div>
-        <ul>
-          <li>Lorem ipsum dolor</li>
-          <li>Lorem ipsum dolor</li>
-          <li>Lorem ipsum dolor</li>
-          <li>Lorem ipsum dolor</li>
-        </ul>
-      </Card>
+      </div>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/song-finder" element={<Song />}></Route>
+        <Route path="/chord-generator" element={<Chord />}></Route>
+      </Routes>
     </div>
   );
 }
