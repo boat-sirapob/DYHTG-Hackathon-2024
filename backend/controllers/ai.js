@@ -8,11 +8,29 @@ const ai = new AI();
 export default {
     testAI: asyncHandler(async (req, res) => {
         try {
-            const response = await ai.generateResponse("This is a test query please say something that you can get this message!");
-            res.json({ message: response });
+            const response = await ai.testResponse();
+            res.json({ data: response, result: 0 });
         }
         catch (error) {
-            res.json({ message: error, error: true });
+            res.json({ message: error, result: 1 });
+        }
+    }),
+    generateSongRecommendation: asyncHandler(async (req, res) => {
+        try {
+            const response = await ai.songGenerationResponse(req.body);
+            res.json({ data: response, result: 0 });
+        }
+        catch (error) {
+            res.json({ message: error, result: 1 });
+        }
+    }),
+    generateChords: asyncHandler(async (req, res) => {
+        try {
+            const response = await ai.chordsGenerationResponse(req.body);
+            res.json({ data: response, result: 0 });
+        }
+        catch (error) {
+            res.json({ message: error, result: 1 });
         }
     }),
 }

@@ -11,23 +11,133 @@ export class AI {
         });
     }
 
-    async generateResponse(prompt) {
+    async testResponse() {
         try {
             const response = await this.openai.chat.completions.create({
                 model: this.model,
                 messages: [
                     {
                         role: 'system',
-                        content: 'You are a helpful assistant.',
+                        content: 'You are a helpful assistant',
                     },
                     {
                         role: 'user',
-                        content: prompt,
+                        content: 'Hello, who are you?',
                     },
                 ],
                 max_tokens: 100,
             });
             return response.choices[0].message.content;
+        } catch (error) {
+            console.error('Error generating text:', error);
+            throw error;
+        }
+    }
+
+    async songGenerationResponse(prompt) {
+        try {
+            const response = await this.openai.chat.completions.create({
+                model: this.model,
+                messages: [
+                    {
+                        role: 'system',
+                        content: `
+                        You are assistant to musician trying to learn a new song based on their experiences. You must suggest 20 best song that suits their style. These song will be get from Ultimate Guitar API and Genius, please make sure that the song exists.
+
+                        You must provide the output a valid json that JSON.parse can format which follows this structure:
+
+                        INPUT: 
+                        
+                        {
+                            skill_level: ...,
+                            voice_tone: ...
+                        }
+
+                        OUTPUT: 
+                        
+                        {
+                            songs: [
+                                {
+                                    title: ...,
+                                    artist: ...,
+                                },
+                                ...
+                            ]
+                        }
+                        `,
+                    },
+                    {
+                        role: 'user',
+                        content: `
+                        Here is my information:
+                        {
+                            skill_level: ${prompt.skill_level},
+                            voice_tone: ${prompt.voice_tone},
+                        }
+                        `,
+                    },
+                ],
+                response_format: { "type": "json_object" },
+            });
+            let result = JSON.parse(response.choices[0].message.content);
+            return result;
+        } catch (error) {
+            console.error('Error generating text:', error);
+            throw error;
+        }
+    }
+
+    async chordsGenerationResponse(prompt) {
+        try {
+            const response = await this.openai.chat.completions.create({
+                model: this.model,
+                messages: [
+                    {
+                        role: 'system',
+                        content: `
+                        You are assistant to musician trying to learn a new song based on their experiences. You must suggest 20 best chords progression that suits their style.
+                        Chords may have different duration, you must provide the duration of each chord and each list must not be the same.
+
+                        You must provide the output a valid json that JSON.parse can format which follows this structure:
+
+                        INPUT: 
+                        
+                        {
+                            skill_level: ...,
+                            genre: ...,
+                        }
+
+                        OUTPUT: 
+                        
+                        {
+                            chords: [
+                                [
+                                    {
+                                        chord: ...,
+                                        duration: ...,
+                                    },
+                                    ...
+                                ]
+                                ...
+                            ]
+                        }
+                        `,
+                    },
+                    {
+                        role: 'user',
+                        content: `
+                        Here is my information:
+                        {
+                            skill_level: ${prompt.skill_level},
+                            genre: ${prompt.genre},
+                        }
+                        `,
+                    },
+                ],
+                response_format: { "type": "json_object" },
+            });
+            let result = JSON.parse(response.choices[0].message.content);
+            return result;
         } catch (error) {
             console.error('Error generating text:', error);
             throw error;
