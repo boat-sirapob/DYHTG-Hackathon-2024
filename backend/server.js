@@ -7,6 +7,7 @@ import bodyParser from 'body-parser';
 
 // Routes imports
 import { AIRoutes } from './routes/ai.js';
+import { TestRoutes } from './routes/test.js';
 
 // Setup express
 const app = express();
@@ -17,6 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Setup routes
 app.use('/ai', AIRoutes);
+app.use('/test', TestRoutes)
 
 app.get('/', (req, res) => {
   res.json({ message: 'Hello World!' });
