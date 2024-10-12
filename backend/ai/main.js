@@ -104,8 +104,11 @@ export class AI {
                         INPUT: 
                         
                         {
-                            skill_level: ...,
                             genre: ...,
+                            song_difficulty: ...,
+                            mood: ...,
+                            era: ...,
+                            additional_info: ...,
                         }
 
                         OUTPUT: 
@@ -130,8 +133,11 @@ export class AI {
                         content: `
                         Here is my information:
                         {
-                            skill_level: ${prompt.skill_level},
                             genre: ${prompt.genre},
+                            song_difficulty: ${prompt.difficulty},
+                            mood: ${prompt.mood || 'not_specified'},
+                            era: ${prompt.era || 'not_specified'},
+                            additional_info: ${prompt.additional || 'not_specified'},
                         }
                         `,
                     },

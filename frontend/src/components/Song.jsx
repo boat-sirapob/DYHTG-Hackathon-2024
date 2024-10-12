@@ -21,7 +21,7 @@ export default function Song() {
 
   const onSubmit = (data) => {
     axios
-      .post("http://localhost:3001/index/submit-form", {
+      .post("http://localhost:3001/index/submit-song-form", {
         genre: data.genre,
         difficulty: JSON.stringify(data.difficulty),
       })

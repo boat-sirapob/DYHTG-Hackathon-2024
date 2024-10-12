@@ -1,16 +1,24 @@
 import "./Chord.css";
 
+import { useState } from "react";
 import Button from "./Button";
 import Card from "./Card";
 import ChordItem from "./ChordItem";
 import Form from "./Form/Form";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 export default function Chord() {
   const { handleSubmit, control } = useForm();
+  const [chords, setChords] = useState([]);
 
   const onSubmit = (data) => {
-    console.log(data);
+    axios.post("http://localhost:3001/index/submit-chords-form", data).then((response) => {
+      setChords(response.data.data.chords);
+    }
+    ).catch((error) => {
+      console.log(error); 
+    });
   };
 
   return (
@@ -64,7 +72,9 @@ export default function Chord() {
           </form>
         </Card>
         <Card size="small" title="Chords" className="s-right-card">
-          <ChordItem chord="yguyug" />
+          {chords ? chords.map((chord, index) => (
+            <ChordItem key={index} chord={chord.map((a) => {return a.chord}).join("-")} />
+          )) : "Please submit the form"}
         </Card>
       </div>
     </div>
