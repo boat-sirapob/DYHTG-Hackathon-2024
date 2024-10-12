@@ -261,14 +261,11 @@ function FormDifficulty({ title, name, control }) {
             control={control}
             render={({ field }) => (
               <>
-                <input
-                  {...field}
+                <input {...field} type="checkbox" id={level} hidden />
+                <label
+                  htmlFor={level}
                   className={`input-box difficulty-${level}`}
-                  type="checkbox"
-                  id={level}
-                  hidden
-                />
-                <label htmlFor={level} className="input-box">
+                >
                   {level.charAt(0).toUpperCase() + level.slice(1)}
                 </label>
               </>

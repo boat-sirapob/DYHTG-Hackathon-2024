@@ -1,7 +1,6 @@
 .song-finder-container {
   display: flex;
   flex-direction: column;
-  padding: 35px 0px 25px 65px;
   gap: 25px;
 }
 
@@ -18,7 +17,12 @@
 .song-finder-contents {
   display: flex;
   gap: 48px;
-  flex-wrap: wrap;
+  padding: 10px;
+  justify-content: center;
+}
+
+.song-finder-contents > * {
+  flex: 1;
 }
 
 .song-finder-form {

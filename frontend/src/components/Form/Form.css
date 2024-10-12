@@ -21,7 +21,7 @@
   background-color: #333c44;
   outline: none;
   font-size: 16px;
-  border-radius: 12px;
+  border-radius: 8px;
   border: 2px solid transparent;
   box-shadow: none;
   color: white;
@@ -33,12 +33,12 @@
   background-color: #333c44;
   outline: none;
   font-size: 16px;
-  border-radius: 12px;
+  border-radius: 8px;
   border: 2px solid transparent;
   box-shadow: none;
   color: white;
   transition: 0.2s ease;
-  resize: none;
+  resize: vertical;
 }
 
 .input-box-large::-webkit-scrollbar {
@@ -63,21 +63,54 @@
 .difficulties {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
   gap: 10px;
 }
 
 .difficulties > * {
   flex: 1;
+  text-align: center;
+  transition: 0.2s ease;
+}
+
+.difficulties > *:hover {
+  cursor: pointer;
+  user-select: none;
 }
 
 .difficulty-easy {
-  background-color: #6cd55c;
+  background-color: #3c4c39;
 }
 
 .difficulty-medium {
-  background-color: #e2b053;
+  background-color: #524937;
 }
 
 .difficulty-hard {
+  background-color: #473232;
+}
+
+#easy:hover ~ .difficulty-easy {
+  background-color: #587e52;
+}
+
+#medium:hover ~ .difficulty-medium {
+  background-color: #7e673c;
+}
+
+#hard:hover ~ .difficulty-hard {
+  background-color: #753737;
+}
+
+#easy:checked ~ .difficulty-easy {
+  background-color: #6cd55c;
+}
+
+#medium:checked ~ .difficulty-medium {
+  background-color: #e2b053;
+}
+
+#hard:checked ~ .difficulty-hard {
   background-color: #d55353;
 }
