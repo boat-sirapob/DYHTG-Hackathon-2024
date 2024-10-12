@@ -1,4 +1,3 @@
-import asyncHandler from 'express-async-handler';
 import { AI } from '../ai/main.js';
 import { config } from 'dotenv';
 config();
@@ -6,31 +5,31 @@ config();
 const ai = new AI();
 
 export default {
-    testAI: asyncHandler(async (req, res) => {
+    testAI: async (req, res) => {
         try {
             const response = await ai.testResponse();
-            res.json({ data: response, result: 0 });
+            return response;
         }
         catch (error) {
-            res.json({ message: error, result: 1 });
+            throw error;
         }
-    }),
-    generateSongRecommendation: asyncHandler(async (req, res) => {
+    },
+    generateSongRecommendation: async (req, res) => {
         try {
             const response = await ai.songGenerationResponse(req.body);
-            res.json({ data: response, result: 0 });
+            return response;
         }
         catch (error) {
-            res.json({ message: error, result: 1 });
+            throw error;
         }
-    }),
-    generateChords: asyncHandler(async (req, res) => {
+    },
+    generateChords: async (req, res) => {
         try {
             const response = await ai.chordsGenerationResponse(req.body);
-            res.json({ data: response, result: 0 });
+            return response;
         }
         catch (error) {
-            res.json({ message: error, result: 1 });
+            throw error;
         }
-    }),
+    },
 }

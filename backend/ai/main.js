@@ -49,8 +49,8 @@ export class AI {
                         INPUT: 
                         
                         {
-                            skill_level: ...,
-                            voice_tone: ...
+                            genre: ...,
+                            skill_level: ...
                         }
 
                         OUTPUT: 
@@ -71,8 +71,8 @@ export class AI {
                         content: `
                         Here is my information:
                         {
-                            skill_level: ${prompt.skill_level},
-                            voice_tone: ${prompt.voice_tone},
+                            genre: ${prompt.genre},
+                            skill_level: ${prompt.difficulty},
                         }
                         `,
                     },

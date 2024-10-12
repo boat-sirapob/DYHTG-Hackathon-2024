@@ -1,27 +1,32 @@
 import express from "express";
 import UltimateGuitar from 'ultimate-guitar' 
+import AIController from "../controllers/ai.js";
 
 const router = express.Router();
 
 // Route for handling form submission
 router.post('/submit-form', async (req, res) => {
-    const { songName, genre, difficulty, additionalInfo } = req.body;
+    try {
 
-    // Validate inputs (basic validation)
-    if (!songName || !genre || !difficulty) {
-        res.json({ message: "Error: must provide all required fields ", error: 1 });
+        const { genre, difficulty, additionalInfo } = req.body;
+    
+        // Validate inputs (basic validation)
+        if ( !genre || !difficulty) {
+            res.json({ message: "Error: must provide all required fields ", error: 1 });
+        }
+    
+        console.log(req.body);
+        let recommendation_res = await AIController.generateSongRecommendation(req, res);
+    
+        // Respond with the submitted data
+        res.json({
+            message: 'Form submitted successfully!',
+            data: recommendation_res,
+            error: 0
+        });
+    } catch (error) {
+        res.json({ message: error, error: 1 });
     }
-
-    const guitar = new UltimateGuitar()
-	await guitar.init(songName) // Required for you to search a song
-	const data = await guitar.fetch_data(UltimateGuitar.FIRST)
-
-    // Respond with the submitted data
-    res.json({
-        message: 'Form submitted successfully!',
-        data,
-        error: 0
-    });
 });
 
 export const IndexRoutes = router;

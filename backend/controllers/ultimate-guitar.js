@@ -2,26 +2,26 @@ import asyncHandler from 'express-async-handler';
 import UltimateGuitar from 'ultimate-guitar';
 
 export default {
-    getFirstDataFromTitle: asyncHandler(async (req, res) => {
+    getFirstDataFromTitle: async (req, res) => {
         try {
             const guitar = new UltimateGuitar();
-            await guitar.init(req.query.song);
+            await guitar.init(req.body.title);
             const data = await guitar.fetch_data(UltimateGuitar.FIRST);
-            res.json({ data: data, result: 0 });
+            return data
         }
         catch (error) {
-            res.json({ message: error, result: 1 });
+            throw error
         }
-    }),
-    getSongsListFromTitle: asyncHandler(async (req, res) => {
+    },
+    getSongsListFromTitle: async (req, res) => {
         try {
             const guitar = new UltimateGuitar();
-            await guitar.init(req.query.title);
-            const data = await guitar.search();
-            res.json({ data: data, result: 0 });
+            await guitar.init(req.body.title);
+            const data = await guitar.fetch_data();
+            return data
         }
         catch (error) {
-            res.json({ message: error, result: 1 });
+            throw error
         }
-    }),
+    },
 }
