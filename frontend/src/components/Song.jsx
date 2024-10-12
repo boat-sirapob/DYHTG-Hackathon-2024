@@ -61,7 +61,7 @@ export default function Song() {
               name="difficulty"
               control={control}
             />
-            {/* <Form
+            <Form
               title="What mood do you want your practice sessions to reflect?"
               placeholder="Relaxed, High energy, Focused, Fun, etc."
               type="small"
@@ -88,7 +88,7 @@ export default function Song() {
               type="large"
               name="additional"
               control={control}
-            /> */}
+            />
             <Button text="Submit" />
           </form>
         </Card>

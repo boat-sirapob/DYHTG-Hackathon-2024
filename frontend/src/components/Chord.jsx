@@ -47,13 +47,6 @@ export default function Chord() {
               control={control}
             />
             <Form
-              title="What instrument(s) do you want to play?"
-              placeholder="Guitar, Piano, Violin, Drums, etc."
-              type="small"
-              name="instrument"
-              control={control}
-            />
-            <Form
               title="Additional information"
               placeholder="Add anything else we should know"
               type="large"
