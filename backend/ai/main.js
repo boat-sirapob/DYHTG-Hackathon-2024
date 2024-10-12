@@ -50,7 +50,7 @@ export class AI {
                         
                         {
                             genre: ...,
-                            skill_level: ...
+                            song_difficulty: ...,
                         }
 
                         OUTPUT: 
@@ -72,7 +72,7 @@ export class AI {
                         Here is my information:
                         {
                             genre: ${prompt.genre},
-                            skill_level: ${prompt.difficulty},
+                            song_difficulty: ${prompt.difficulty},
                         }
                         `,
                     },

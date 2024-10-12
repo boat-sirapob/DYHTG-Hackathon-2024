@@ -17,6 +17,10 @@ router.post('/submit-form', async (req, res) => {
     
         console.log(req.body);
         let recommendation_res = await AIController.generateSongRecommendation(req, res);
+
+        new Promise.all([
+            recommendation_res
+        ]);
     
         // Respond with the submitted data
         res.json({
