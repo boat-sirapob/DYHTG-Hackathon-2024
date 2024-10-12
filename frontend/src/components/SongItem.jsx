@@ -2,10 +2,12 @@ import "./SongItem.css";
 
 import Button from "./Button";
 
-export default function SongItem({ title, subtitle, difficulty, duration }) {
+export default function SongItem({ title, subtitle, difficulty, thumbnail }) {
   return (
     <div className="song-item">
-      <div className="song-item-image"></div>
+      <div className="song-item-image">
+        <img src={thumbnail} alt="" />
+      </div>
       <div className="song-item-detail">
         <div className="song-item-info">
           <div className="song-item-title">{title}</div>
@@ -13,7 +15,7 @@ export default function SongItem({ title, subtitle, difficulty, duration }) {
         </div>
         <div className="song-item-difficulty">{difficulty}</div>
       </div>
-      <div className="song-item-duration">{duration}</div>
+      <div className="song-item-duration"></div>
       <div className="song-item-play-button">
         <Button size="small" text="Play" />
       </div>

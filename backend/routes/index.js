@@ -1,6 +1,9 @@
+import { config } from 'dotenv';
+config();
 import express from "express";
 import UltimateGuitar from 'ultimate-guitar' 
 import AIController from "../controllers/ai.js";
+import ultimateGuitar from "../controllers/ultimate-guitar.js";
 
 const router = express.Router();
 
@@ -17,15 +20,19 @@ router.post('/submit-form', async (req, res) => {
     
         console.log(req.body);
         let recommendation_res = await AIController.generateSongRecommendation(req, res);
-
-        new Promise.all([
-            recommendation_res
-        ]);
+        console.log("RECOMMENDATION", recommendation_res);
+        const updatedRecommendations = await Promise.all(recommendation_res.songs.map(async (song) => {
+            let data = await ultimateGuitar.getSongsDataByTitle(song.title);
+            console.log(data.data.response.hits[0].result);
+            song.data = data.data.response.hits[0].result;
+            return song;
+        }));
+        // console.log("UPDATED RECOMMENDATIONS", updatedRecommendations);
     
         // Respond with the submitted data
         res.json({
             message: 'Form submitted successfully!',
-            data: recommendation_res,
+            data: updatedRecommendations,
             error: 0
         });
     } catch (error) {

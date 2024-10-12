@@ -5,7 +5,8 @@ import Card from "./Card";
 import Form from "./Form/Form";
 import SongItem from "./SongItem";
 import { useForm } from "react-hook-form";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import axios from "axios";
 
 const Difficulty = {
   Easy: "Easy",
@@ -13,21 +14,29 @@ const Difficulty = {
   Hard: "Hard",
 };
 
-// TODO: fill with results
-const songs = [
-  {
-    title: "I Wish You Love",
-    subtitle: "Laufey",
-    difficulty: Difficulty.Easy,
-    duration: "2:23",
-  },
-];
-
 export default function Song() {
   const { handleSubmit, control } = useForm();
+  const [songs, setSongs] = useState([]);
 
   const onSubmit = (data) => {
-    console.log(data);
+    axios
+    .post("http://localhost:3000/index/submit-form", {
+      genre: data.genre,
+      difficulty: JSON.stringify(data.difficulty),
+    })
+    .then((response) => {
+      setSongs(response.data.data.map((song) => {
+        return {
+          title: song.title,
+          subtitle: song.artist,
+          difficulty: song.difficulty,
+          thumbnail: song.data.header_image_thumbnail_url,
+        };
+      })
+    )})
+    .catch((error) => {
+      console.log(error);
+    });
   };
 
   return (
@@ -54,7 +63,7 @@ export default function Song() {
         </Card>
         <Card size="small" title="Songs" className="s-right-card">
           <div className="song-finder-list">
-            {songs.map((song) => (
+            {songs && songs.map((song) => (
               <SongItem {...song} />
             ))}
           </div>
