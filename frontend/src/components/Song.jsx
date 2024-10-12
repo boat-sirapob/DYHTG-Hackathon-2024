@@ -20,7 +20,7 @@ export default function Song() {
 
   const onSubmit = (data) => {
     axios
-    .post("http://localhost:3000/index/submit-form", {
+    .post("http://localhost:3001/index/submit-form", {
       genre: data.genre,
       difficulty: JSON.stringify(data.difficulty),
     })
@@ -29,8 +29,8 @@ export default function Song() {
         return {
           title: song.title,
           subtitle: song.artist,
-          difficulty: song.difficulty,
           thumbnail: song.data.header_image_thumbnail_url,
+          difficulty: song.analysed_difficulty
         };
       })
     )})

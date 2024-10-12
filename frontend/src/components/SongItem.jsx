@@ -13,7 +13,7 @@ export default function SongItem({ title, subtitle, difficulty, thumbnail }) {
           <div className="song-item-title">{title}</div>
           <div className="song-item-subtitle">{subtitle}</div>
         </div>
-        <div className="song-item-difficulty">{difficulty}</div>
+        <div className={`song-item-difficulty ${difficulty}`}>{difficulty}</div>
       </div>
       <div className="song-item-duration"></div>
       <div className="song-item-play-button">

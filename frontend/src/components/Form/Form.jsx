@@ -254,7 +254,7 @@ function FormDifficulty({ title, name, control }) {
     <div className="form-box">
       <div className="form-text">{title}</div>
       <div className="difficulties">
-        {["easy", "medium", "hard"].map((level) => (
+        {["easy", "intermediate", "hard"].map((level) => (
           <Controller
             key={level}
             name={`${name}[${level}]`}
