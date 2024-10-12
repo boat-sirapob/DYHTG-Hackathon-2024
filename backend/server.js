@@ -1,18 +1,22 @@
+import { config } from 'dotenv';
+config();
+
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 
-import { config } from 'dotenv';
-config();
+// Routes imports
+import { AIRoutes } from './routes/ai.js';
 
-import { AI } from './ai/main.js';
-
+// Setup express
 const app = express();
-const port = 3000;
-const ai = new AI();
+const port = process.env.PORT;
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// Setup routes
+app.use('/ai', AIRoutes);
 
 app.get('/', (req, res) => {
   res.json({ message: 'Hello World!' });
@@ -20,14 +24,4 @@ app.get('/', (req, res) => {
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
-});
-
-app.get('/test/ai', async (req, res) => {
-  try {
-    const response = await ai.generateResponse("Say Hello world");
-    res.json({ message: response });
-  }
-  catch (error) {
-    res.json({ message: error, error: true });
-  }
 });
