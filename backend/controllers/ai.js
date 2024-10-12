@@ -8,7 +8,7 @@ const ai = new AI();
 export default {
     testAI: asyncHandler(async (req, res) => {
         try {
-            const response = await ai.generateResponse("Say Hello world");
+            const response = await ai.generateResponse("This is a test query please say something that you can get this message!");
             res.json({ message: response });
         }
         catch (error) {
