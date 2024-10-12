@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   background-color: #151b21;
-  width: 100%;
+  /* width: 100%; */
   height: 120px;
 }
 
@@ -33,7 +33,7 @@
 
 .subtitle {
   display: flex;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.8);
   align-items: center;
   justify-content: center;
   font-size: 22px;
@@ -61,11 +61,13 @@
     rgba(94, 205, 225, 0.5) 100%
   );
   padding: 50px 30px;
+  flex: 1;
 }
 
 .left-card .card,
 .right-card .card {
-  height: fit-content;
+  /* height: fit-content; */
+  min-height: 460px;
 }
 
 .right-card {
@@ -75,4 +77,5 @@
     rgba(236, 102, 26, 0.5) 100%
   );
   padding: 50px 30px;
+  flex: 1;
 }

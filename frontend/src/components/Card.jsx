@@ -3,7 +3,15 @@ import "./Card.css";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 
-export function ButtonCard({ size, align, title, colorTitle, children, link }) {
+export function ButtonCard({
+  size,
+  align,
+  icon,
+  title,
+  colorTitle,
+  children,
+  link,
+}) {
   const navigate = useNavigate();
 
   const redirect = () => {
@@ -11,7 +19,13 @@ export function ButtonCard({ size, align, title, colorTitle, children, link }) {
   };
 
   return (
-    <CardLayout size={size} align={align} title={title} colorTitle={colorTitle}>
+    <CardLayout
+      size={size}
+      align={align}
+      icon={icon}
+      title={title}
+      colorTitle={colorTitle}
+    >
       <div className="card-details">{children}</div>
       <div className="card-footer">
         <Button size="large" text="Try it out" onClick={redirect} />
@@ -20,12 +34,13 @@ export function ButtonCard({ size, align, title, colorTitle, children, link }) {
   );
 }
 
-function CardLayout({ size, align, title, colorTitle, children }) {
+function CardLayout({ size, align, icon, title, colorTitle, children }) {
   const titleClass = size === "large" ? "strong" : "medium";
 
   return (
     <div className="card">
       <div className={`card-header ${size} ${align}`}>
+        <img src={icon} alt="" />
         <div className={titleClass}>
           {colorTitle ? <span className="gradient">{colorTitle} </span> : <></>}
           {title}
@@ -45,7 +60,13 @@ export default function Card({
   children,
 }) {
   return (
-    <CardLayout size={size} align={align} title={title} colorTitle={colorTitle}>
+    <CardLayout
+      size={size}
+      align={align}
+      icon={icon}
+      title={title}
+      colorTitle={colorTitle}
+    >
       <div className="card-details">{children}</div>
     </CardLayout>
   );
