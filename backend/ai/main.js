@@ -3,7 +3,7 @@ import OpenAI from "openai";
 export class AI {
     constructor() {
         this.name = 'AI';
-        this.model = 'gpt-3.5-turbo'
+        this.model = 'gpt-4o-mini';
         this.API_KEY = process.env.API_KEY;
 
         this.openai = new OpenAI({
