@@ -29,22 +29,24 @@ export default function SongDetails() {
         title: title,
       })
       .then((res) => {
-        setSong(res.data);
-
-        if (!res.data) {
-          setSongFound(false);
-        }
-
-        console.log(res.data);
-        const parser = new ChordSheetJS.UltimateGuitarParser();
-        const parsedSong = parser.parse(res.data?.chord);
-
-        // const formatter = new ChordSheetJS.TextFormatter();
-        // const formattedSong = formatter.format(parsedSong);
-
-        // setDisp(formattedSong);
+        setSong(res.data.data);
       });
   }, [title]);
+
+  useEffect(() => {
+    if (song) {
+      const parser = new ChordSheetJS.UltimateGuitarParser();
+      const parsedSong = parser.parse(song.chords);
+
+      const formatter = new ChordSheetJS.TextFormatter();
+      const formattedSong = formatter.format(parsedSong);
+
+      setDisp(formattedSong);
+    }
+    else {
+      setSongFound(false);
+    }
+  }, [song]);
 
   return (
     <div className="song-details-container">

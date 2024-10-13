@@ -54,4 +54,5 @@
 
 .song-details-lyrics {
   white-space: break-spaces;
+  font-family: monospace, sans-serif;
 }
