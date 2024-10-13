@@ -1,8 +1,15 @@
 import "./SongItem.css";
 
 import Button from "./Button";
+import { useNavigate } from "react-router-dom";
 
 export default function SongItem({ title, subtitle, difficulty, thumbnail }) {
+  const navigate = useNavigate();
+
+  const redirect = () => {
+    navigate(encodeURI(`/song/${title}`));
+  };
+
   return (
     <div className="song-item">
       <div className="song-item-image">
@@ -17,7 +24,7 @@ export default function SongItem({ title, subtitle, difficulty, thumbnail }) {
       </div>
       <div className="song-item-duration"></div>
       <div className="song-item-play-button">
-        <Button size="small" text="Play" />
+        <Button size="small" text="View" onClick={redirect} />
       </div>
     </div>
   );
