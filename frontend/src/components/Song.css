@@ -28,6 +28,7 @@
 
 .song-finder-contents > :nth-child(2) {
   flex: 2;
+  position: relative;
 }
 
 .song-finder-form {

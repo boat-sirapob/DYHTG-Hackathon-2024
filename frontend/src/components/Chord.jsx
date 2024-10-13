@@ -7,6 +7,7 @@ import ChordItem from "./ChordItem";
 import Form from "./Form/Form";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import Loading from "./Loading";
 
 export default function Chord() {
   const { handleSubmit, control } = useForm();
@@ -71,7 +72,7 @@ export default function Chord() {
         <Card size="small" title="Chords" className="s-right-card">
           {
             isLoading ? (
-              <div>Loading...</div>
+              <Loading />
             ) :
             chords.length > 0 ? chords.map((chord, index) => (
               <ChordItem key={index} chord={chord.map((a) => {return a.chord}).join("-")} />

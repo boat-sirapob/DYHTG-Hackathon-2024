@@ -8,7 +8,7 @@ import Form from "./Form/Form";
 import SongItem from "./SongItem";
 import axios from "axios";
 import { set, useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
+import Loading from "./Loading";
 
 const Difficulty = {
   Easy: "Easy",
@@ -101,7 +101,7 @@ export default function Song() {
           <div className="song-finder-list">
             {
             isLoading ? (
-              <div>Loading...</div>
+              <Loading/>
             ) :
             songs.length > 0 ? (
               songs.map((song) => <SongItem {...song} />)

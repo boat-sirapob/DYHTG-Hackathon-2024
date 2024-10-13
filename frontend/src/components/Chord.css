@@ -1,9 +1,19 @@
 .chord-container {
     display: flex;
     flex-direction: column;
-    padding: 35px 0px 25px 65px;
+    padding: 35px 65px 25px 65px;
     gap: 25px;
   }
+
+  .chord-contents > :first-child {
+    flex: 1;
+  }
+  
+  .chord-contents > :nth-child(2) {
+    flex: 2;
+    position: relative;
+  }
+  
   
   .chord-title {
     display: flex;
