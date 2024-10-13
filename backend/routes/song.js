@@ -21,7 +21,7 @@ router.post("/all", async (req, res) => {
     }
 });
 
-router.get("/youtube", async (req, res) => {
+router.post("/youtube", async (req, res) => {
     try {
         let data = await ultimateGuitar.getEmbedYoutubeLink(req.body.title);
         const videoId = data.data.items[0].id.videoId;
