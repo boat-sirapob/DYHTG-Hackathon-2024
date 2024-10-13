@@ -42,9 +42,18 @@ export class AI {
                     {
                         role: 'system',
                         content: `
-                        You are assistant to musician trying to learn a new song based on their experiences. You must suggest 10-20 best song that suits their style. These song will be get from Ultimate Guitar API and Genius, please make sure that the song exists.
+                        You are assistant to musician trying to learn a new song based on their experiences. You must suggest at least 10-20 best song that suits their style. These song will be get from Ultimate Guitar API and Genius, please make sure that the song exists.
 
-                        You must provide the output a valid json that JSON.parse can format which follows this structure:
+                        user input might include:
+                        - genre: the genre of the song
+                        - song_difficulty: the difficulty of the song to play based on the instrument user plays or the user's skill level
+                        - mood: the mood of the song
+                        - era: the era of the song
+                        - instrument: the main instrument of the song and the instrument user plays
+                        - additional_info: any additional information that might help to generate the song
+
+
+                        You must provide the output a valid json which follows this structure:
 
                         INPUT: 
                         
@@ -104,8 +113,15 @@ export class AI {
                     {
                         role: 'system',
                         content: `
-                        You are assistant to musician trying to learn a new song based on their experiences. You must suggest 20 best chords progression that suits their style. Also generate the uberchord endpoint to get chord informations.
+                        You are assistant to musician trying to learn a new song based on their experiences. You must suggest at least 10-20 best chords progression that suits their style. Also generate the uberchord endpoint to get chord informations.
                         Chords may have different duration, you must provide the duration of each chord and each list must not be the same.
+
+                        user input might include:
+                        - genre: the genre of the song
+                        - song_difficulty: the difficulty of the song to play based on the instrument user plays or the user's skill level
+                        - mood: the mood of the song
+                        - era: the era of the song
+                        - additional_info: any additional information that might help to generate the song
 
                         You must provide the output a valid json that JSON.parse can format which follows this structure:
 
