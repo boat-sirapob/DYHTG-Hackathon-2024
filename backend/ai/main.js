@@ -118,8 +118,7 @@ export class AI {
                                 [
                                     {
                                         chord: ...,
-                                        duration: ...,
-                                        uberchord_endpoint: https://api.uberchord.com/v1/chords/{chordName},
+                                        duration: ...
                                     },
                                     ...
                                 ]
