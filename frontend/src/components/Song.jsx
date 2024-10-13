@@ -44,7 +44,7 @@ export default function Song() {
     <div className="song-finder-container">
       <div className="song-finder-title">Song Finder</div>
       <div className="song-finder-contents">
-        <Card size="small" title="Questions" className="s-left-card">
+        <Card size="small" title="Preferences" className="s-left-card">
           <form className="song-finder-form" onSubmit={handleSubmit(onSubmit)}>
             <Form
               title="What genre(s) of music do you enjoy?"

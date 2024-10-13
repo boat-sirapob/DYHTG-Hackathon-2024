@@ -32,7 +32,7 @@ export default function Chord() {
     <div className="chord-container">
       <div className="chord-title">Chord Progression Generator</div>
       <div className="chord-contents">
-        <Card size="small" title="Filter" className="s-left-card">
+        <Card size="small" title="Preferences" className="s-left-card">
           <form className="song-finder-form" onSubmit={handleSubmit(onSubmit)}>
             <Form
               title="What genre(s) of music do you enjoy?"

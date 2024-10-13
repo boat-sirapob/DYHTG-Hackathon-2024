@@ -30,6 +30,7 @@ export default function SongDetails() {
         title: title,
       })
       .then((res) => {
+        console.log(res.data.data);
         setSong(res.data.data);
       });
 
@@ -82,18 +83,18 @@ export default function SongDetails() {
                     <span className="bold">Artist: </span>
                     {song.artist}
                   </li>
-                  <li>
+                  {/* <li>
                     <span className="bold">Duration: </span>
                     {song.duration}
-                  </li>
+                  </li> */}
                   <li>
                     <span className="bold">Key: </span>
                     {song.key}
                   </li>
-                  <li>
+                  {/* <li>
                     <span className="bold">Difficulty: </span>
                     {song.difficulty}
-                  </li>
+                  </li> */}
                 </ul>
               ) : songFound ? (
                 <div>Loading</div>
