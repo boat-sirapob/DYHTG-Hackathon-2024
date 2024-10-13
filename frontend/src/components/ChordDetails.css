@@ -1,0 +1,44 @@
+.chord-details-title {
+  display: flex;
+  color: #ec661a;
+  font-size: 43px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  justify-content: flex-start;
+}
+
+.chord-details-container {
+  display: flex;
+  flex-direction: column;
+  padding: 35px 65px;
+  gap: 25px;
+}
+
+.chord-details-contents {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chord-details-info {
+  display: flex;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+.chord-details-lyrics {
+  white-space: break-spaces;
+}
+
+.chord-image {
+  width: 50%;
+}
+
+.chord-image img {
+  width: 60%;
+}
+
+.chord-name {
+  font-size: 22px;
+}
