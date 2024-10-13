@@ -1,0 +1,26 @@
+.chord-container {
+    display: flex;
+    flex-direction: column;
+    padding: 35px 0px 25px 65px;
+    gap: 25px;
+  }
+  
+  .chord-title {
+    display: flex;
+    color: #ec661a;
+    font-size: 43px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    justify-content: flex-start;
+  }
+  
+  .chord-contents {
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  
+  .c-left-card {
+    padding: 50px 30px;
+  }
