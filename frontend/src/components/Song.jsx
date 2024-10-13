@@ -20,6 +20,10 @@ export default function Song() {
       .post("http://localhost:3001/index/submit-song-form", {
         genre: data.genre,
         difficulty: JSON.stringify(data.difficulty),
+        mood: data.mood,
+        era: data.era,
+        instrument: data.instrument,
+        additional_info: data.additional,
       })
       .then((response) => {
         setSongs(

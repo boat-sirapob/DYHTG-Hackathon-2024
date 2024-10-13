@@ -42,7 +42,7 @@ export class AI {
                     {
                         role: 'system',
                         content: `
-                        You are assistant to musician trying to learn a new song based on their experiences. You must suggest 20 best song that suits their style. These song will be get from Ultimate Guitar API and Genius, please make sure that the song exists.
+                        You are assistant to musician trying to learn a new song based on their experiences. You must suggest 10-20 best song that suits their style. These song will be get from Ultimate Guitar API and Genius, please make sure that the song exists.
 
                         You must provide the output a valid json that JSON.parse can format which follows this structure:
 
@@ -51,6 +51,10 @@ export class AI {
                         {
                             genre: ...,
                             song_difficulty: ...,
+                            mood: ...,
+                            era: ...,
+                            instrument: ...,
+                            additional_info: ...,
                         }
 
                         OUTPUT: 
@@ -70,10 +74,14 @@ export class AI {
                     {
                         role: 'user',
                         content: `
-                        Here is my information:
+                        I like you to generate songs based on the information below:
                         {
                             genre: ${prompt.genre},
                             song_difficulty: ${prompt.difficulty},
+                            mood: ${prompt.mood || 'not_specified'},
+                            era: ${prompt.era || 'not_specified'},
+                            instrument: ${prompt.instrument || 'not_specified'},
+                            additional_info: ${prompt.additional || 'not_specified'},
                         }
                         `,
                     },
