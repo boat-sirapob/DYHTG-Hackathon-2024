@@ -30,7 +30,7 @@ function App() {
         <Route path="/song-finder" element={<Song />}></Route>
         <Route path="/chord-generator" element={<Chord />}></Route>
         <Route path="/song/:title" element={<SongDetails />}></Route>
-        <Route path="/chord" element={<ChordDetails />}></Route>
+        <Route path="/chord/:chordsString" element={<ChordDetails />}></Route>
       </Routes>
     </div>
   );

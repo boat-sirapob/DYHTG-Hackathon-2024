@@ -1,20 +1,13 @@
 import "./Song.css";
 
-import { useRef, useState } from "react";
-
 import Button from "./Button";
 import Card from "./Card";
 import Form from "./Form/Form";
+import Loading from "./Loading";
 import SongItem from "./SongItem";
 import axios from "axios";
-import { set, useForm } from "react-hook-form";
-import Loading from "./Loading";
-
-const Difficulty = {
-  Easy: "Easy",
-  Medium: "Medium",
-  Hard: "Hard",
-};
+import { useForm } from "react-hook-form";
+import { useState } from "react";
 
 export default function Song() {
   const { handleSubmit, control } = useForm();
@@ -99,11 +92,9 @@ export default function Song() {
         </Card>
         <Card size="small" title="Songs" className="s-right-card">
           <div className="song-finder-list">
-            {
-            isLoading ? (
-              <Loading/>
-            ) :
-            songs.length > 0 ? (
+            {isLoading ? (
+              <Loading />
+            ) : songs.length > 0 ? (
               songs.map((song) => <SongItem {...song} />)
             ) : (
               <div>

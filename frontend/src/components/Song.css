@@ -37,10 +37,6 @@
   gap: 20px;
 }
 
-.s-left-card {
-  padding: 50px 30px;
-}
-
 .song-finder-list {
   display: flex;
   flex-direction: column;

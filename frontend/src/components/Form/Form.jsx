@@ -203,8 +203,7 @@
 
 import "./Form.css";
 
-import { Controller, useForm } from "react-hook-form";
-
+import { Controller } from "react-hook-form";
 import React from "react";
 
 export default function FormInput({ title, placeholder, type, name, control }) {

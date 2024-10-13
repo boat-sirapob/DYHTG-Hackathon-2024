@@ -75,13 +75,13 @@ const ChordImageFetcher = ({ chordName, instrument }) => {
   }
 
   return (
-    <div>
+    <>
       {/* Render the fetched chord image */}
       <div
         className="chord-image"
         dangerouslySetInnerHTML={{ __html: chordImage }}
       />
-    </div>
+    </>
   );
 };
 

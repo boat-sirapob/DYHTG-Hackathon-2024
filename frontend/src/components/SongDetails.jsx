@@ -22,6 +22,7 @@ export default function SongDetails() {
   const [song, setSong] = useState(null);
   const [disp, setDisp] = useState("");
   const [songFound, setSongFound] = useState(true);
+  const [youtubeUrl, setYoutubeUrl] = useState(null);
 
   useEffect(() => {
     axios
@@ -30,6 +31,14 @@ export default function SongDetails() {
       })
       .then((res) => {
         setSong(res.data.data);
+      });
+
+    axios
+      .post("http://localhost:3001/song/youtube/", {
+        title: title,
+      })
+      .then((res) => {
+        setYoutubeUrl(res.data.data);
       });
   }, [title]);
 
@@ -42,20 +51,17 @@ export default function SongDetails() {
       const formattedSong = formatter.format(parsedSong);
 
       setDisp(formattedSong);
-    }
-    else {
+    } else {
       setSongFound(false);
     }
   }, [song]);
 
   return (
     <div className="song-details-container">
-      {/* <div className="song-details-title"></div> */}
-      {/* <button onClick={onClick}>test</button> */}
       <div className="song-details-section">
         <div className="song-details-embed">
           <iframe
-            src="https://www.youtube.com/embed/1w7OgIMMRc4?si=8kVSXyIyYI9aEE4d"
+            src={youtubeUrl}
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -95,18 +101,6 @@ export default function SongDetails() {
                 <div>Unable to find song.</div>
               )}
             </div>
-            {/* <div className="song-details-embed">
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/1w7OgIMMRc4?si=8kVSXyIyYI9aEE4d"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
-          </div> */}
           </div>
         </Card>
       </div>
