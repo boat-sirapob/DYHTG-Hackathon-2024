@@ -34,7 +34,7 @@ export function ButtonCard({
   );
 }
 
-function CardLayout({ size, align, icon, title, colorTitle, children }) {
+function CardLayout({ size, align, icon, title, colorTitle, className, children }) {
   const titleClass = size === "large" ? "strong" : "medium";
 
   return (
@@ -46,7 +46,7 @@ function CardLayout({ size, align, icon, title, colorTitle, children }) {
           {title}
         </div>
       </div>
-      <div className="card-contents">{children}</div>
+      <div className={`card-contents ${className}`}>{children}</div>
     </div>
   );
 }
@@ -58,6 +58,7 @@ export default function Card({
   colorTitle,
   title,
   children,
+  className,
 }) {
   return (
     <CardLayout
@@ -66,6 +67,7 @@ export default function Card({
       icon={icon}
       title={title}
       colorTitle={colorTitle}
+      className={className}
     >
       <div className="card-details">{children}</div>
     </CardLayout>

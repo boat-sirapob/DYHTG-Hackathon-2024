@@ -11,13 +11,17 @@ import axios from "axios";
 export default function Chord() {
   const { handleSubmit, control } = useForm();
   const [chords, setChords] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = (data) => {
+    setIsLoading(true);
     axios.post("http://localhost:3001/index/submit-chords-form", data).then((response) => {
       setChords(response.data.data.chords);
+      setIsLoading(false);
     }
     ).catch((error) => {
-      console.log(error); 
+      console.log(error);
+      setIsLoading(false);
     });
   };
 
@@ -65,9 +69,14 @@ export default function Chord() {
           </form>
         </Card>
         <Card size="small" title="Chords" className="s-right-card">
-          {chords ? chords.map((chord, index) => (
-            <ChordItem key={index} chord={chord.map((a) => {return a.chord}).join("-")} />
-          )) : "Please submit the form"}
+          {
+            isLoading ? (
+              <div>Loading...</div>
+            ) :
+            chords.length > 0 ? chords.map((chord, index) => (
+              <ChordItem key={index} chord={chord.map((a) => {return a.chord}).join("-")} />
+            )) : "Please submit the form"
+          }
         </Card>
       </div>
     </div>

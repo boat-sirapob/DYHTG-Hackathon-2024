@@ -7,7 +7,7 @@ import Card from "./Card";
 import Form from "./Form/Form";
 import SongItem from "./SongItem";
 import axios from "axios";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 
 const Difficulty = {
@@ -19,8 +19,10 @@ const Difficulty = {
 export default function Song() {
   const { handleSubmit, control } = useForm();
   const [songs, setSongs] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = (data) => {
+    setIsLoading(true);
     axios
       .post("http://localhost:3001/index/submit-song-form", {
         genre: data.genre,
@@ -37,9 +39,11 @@ export default function Song() {
             };
           })
         );
+        setIsLoading(false);
       })
       .catch((error) => {
         console.log(error);
+        setIsLoading(false);
       });
   };
 
@@ -95,7 +99,11 @@ export default function Song() {
         </Card>
         <Card size="small" title="Songs" className="s-right-card">
           <div className="song-finder-list">
-            {songs.length > 0 ? (
+            {
+            isLoading ? (
+              <div>Loading...</div>
+            ) :
+            songs.length > 0 ? (
               songs.map((song) => <SongItem {...song} />)
             ) : (
               <div>
