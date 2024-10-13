@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import Chord from "./components/Chord";
 import Home from "./components/Home";
 import Song from "./components/Song";
+import SongDetails from "./components/SongDetails";
 import logo from "./logo.png";
 import { useNavigate } from "react-router-dom";
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/song-finder" element={<Song />}></Route>
         <Route path="/chord-generator" element={<Chord />}></Route>
+        <Route path="/song" element={<SongDetails />}></Route>
       </Routes>
     </div>
   );

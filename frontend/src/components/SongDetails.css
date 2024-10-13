@@ -1,0 +1,55 @@
+.song-details-title {
+  display: flex;
+  color: #ec661a;
+  font-size: 43px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  justify-content: flex-start;
+}
+
+.song-details-container {
+  display: flex;
+  flex-direction: column;
+  padding: 35px 65px;
+  gap: 25px;
+}
+
+.song-details-contents {
+  display: flex;
+  justify-content: space-between;
+}
+
+.song-details-section {
+  display: flex;
+  flex-direction: row;
+}
+
+.song-details-embed > iframe {
+  height: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.song-details-embed {
+  flex: 2;
+}
+
+.song-details-section :last-child {
+  flex: 1;
+}
+
+.song-details-info ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+.song-details-info ul > li {
+  list-style-type: none;
+}
+
+.song-details-lyrics {
+  white-space: break-spaces;
+}
