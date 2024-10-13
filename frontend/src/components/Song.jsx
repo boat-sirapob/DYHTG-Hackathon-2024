@@ -31,7 +31,7 @@ export default function Song() {
             return {
               title: song.title,
               subtitle: song.artist,
-              difficulty: song.difficulty,
+              difficulty: song.analysed_difficulty,
               thumbnail: song.data.header_image_thumbnail_url,
             };
           })
