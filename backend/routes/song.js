@@ -21,4 +21,15 @@ router.post("/all", async (req, res) => {
     }
 });
 
+router.get("/youtube", async (req, res) => {
+    try {
+        let data = await ultimateGuitar.getEmbedYoutubeLink(req.body.title);
+        const videoId = data.data.items[0].id.videoId;
+        const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+        res.json({ data: embedUrl, result: 0 });
+    } catch (error) {
+        res.json({ message: error, result: 1 });
+    }
+});
+
 export const SongRoutes = router;
