@@ -26,7 +26,7 @@ export default function SongDetails() {
 
   useEffect(() => {
     axios
-      .post("http://localhost:3001/song/", {
+      .post(`${process.env.REACT_APP_BACKEND_DOMAIN}/song/`, {
         title: title,
       })
       .then((res) => {
@@ -35,7 +35,7 @@ export default function SongDetails() {
       });
 
     axios
-      .post("http://localhost:3001/song/youtube/", {
+      .post(`${process.env.REACT_APP_BACKEND_DOMAIN}/song/youtube/`, {
         title: title,
       })
       .then((res) => {

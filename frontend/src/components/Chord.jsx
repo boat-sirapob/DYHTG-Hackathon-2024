@@ -17,7 +17,7 @@ export default function Chord() {
   const onSubmit = (data) => {
     setIsLoading(true);
     axios
-      .post("http://localhost:3001/index/submit-chords-form", data)
+      .post(`${process.env.REACT_APP_BACKEND_DOMAIN}/index/submit-chords-form`, data)
       .then((response) => {
         setChords(response.data.data.chords);
         setIsLoading(false);

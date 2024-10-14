@@ -17,7 +17,7 @@ export default function Song() {
   const onSubmit = (data) => {
     setIsLoading(true);
     axios
-      .post("http://localhost:3001/index/submit-song-form", {
+      .post(`${process.env.REACT_APP_BACKEND_DOMAIN}/index/submit-song-form`, {
         genre: data.genre,
         difficulty: JSON.stringify(data.difficulty),
         mood: data.mood,
